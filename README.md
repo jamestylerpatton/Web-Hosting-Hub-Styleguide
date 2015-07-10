@@ -1,5 +1,2 @@
-# Web hsoting Hub Styleguide
-**Visual WHH style guide for the Marketing team**
-
-#Installation
-First clone the XOP repo in localhost by running:
+# Web Hosting Hub Styleguide
+*A visual style guide for the IMH marketing team*
