@@ -1,0 +1,141 @@
+div#main{
+  // Hero section
+  > .hero{
+    @media (min-width: $screen-md){
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 0;
+    }
+  }
+
+  // MORE SPECIFIC PAGE BANNER STYLES PLACED IN ./banners FOLDER
+  section.banner-sec{
+    color: $white;
+    background: $nav-blue;
+    overflow: hidden;
+    padding-top: 40px;
+    padding-bottom: 80px;
+    @media (min-width: $screen-md){
+      padding-bottom: 130px;
+      padding-top: 140px;
+    }
+
+    // Start specific banner styling
+    &.default-banner{
+      background: url('../img/banners/banner.jpg') center top;
+      @media (min-width: $screen-sm) and (max-width: $screen-sm-max){
+        background: url('../img/banners/banner-md.jpg') center center;
+      }
+      @media (min-width: $screen-xs) and (max-width: $screen-xs-max){
+        background: url('../img/banners/banner-sm.jpg') center center;
+      }
+      @media (max-width: $screen-xs){
+        background: url('../img/banners/banner-xs.jpg') center center;
+      }
+      position: relative;
+      @media (min-width: 1500px){
+        background-size: cover;
+      }
+      @media (max-width: $screen-sm-max){
+        .text-right{
+          text-align: center;
+        }
+      }
+      .overlay{
+        @extend %bg-overlay;
+      }
+      > .container{
+        position: relative;
+      }
+    }
+  }
+}
+
+// Pulls first section down until javascript loads
+@media (min-width: $screen-lg){
+  div#main > section:nth-child(2){
+    margin-top: 361px;
+  }
+  body.about div#main > section:nth-child(2){
+    margin-top: 626px;
+  }
+  body.alternatives div#main > section:nth-child(2),
+  body.web-hosting-hub-coupon div#main > section:nth-child(2){
+    margin-top: 298px;
+  }
+  body.affiliate.b-variant div#main > section:nth-child(2){
+    margin-top: 670px;
+  }
+}
+@media (min-width: $screen-md){
+  body.hosting-plans,
+  body.domains,
+  body.web-design{
+    div#main > section:nth-child(2){
+      margin-top: 350px;
+    }
+  }
+
+  body.plans{
+    div#main > section:nth-child(2){
+      margin-top: 298px;
+    }
+  }
+  body.homepage div#main > section:nth-child(2){
+    margin-top: 690px;
+  }
+  body.homepage.b-variant div#main > section:nth-child(2){
+    margin-top: 715px;
+  }
+  body.affiliate div#main > section:nth-child(2){
+    margin-top: 732px;
+  }
+  body.cms div#main > section:nth-child(2){
+    margin-top: 667px;
+  }
+  body.cms.cpanel div#main > section:nth-child(2){
+    margin-top: 704px;
+  }
+  body.cms.mcafee div#main > section:nth-child(2){
+    margin-top: 699px;
+  }
+  body.web-design-cancel div#main > section:nth-child(2){
+    margin-top: 298px;
+  }
+  body.cnet10 div#main > section:nth-child(2),
+  body.cnet10promo div#main > section:nth-child(2),
+  body.affiliate-promo-c div#main > section:nth-child(2),
+  body.holiday-promo div#main > section:nth-child(2){
+    margin-top: 670px;
+  }
+  body.boldgrid div#main > section:nth-child(2){
+    margin-top: 271px;
+  }
+  body.affiliate-promo-d div#main > section:nth-child(2){
+    margin-top: 233px;
+  }
+  body.homepage.independence-day div#main > section:nth-child(2){
+    margin-top: 655px;
+  }
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max){
+  div#main > section:nth-child(2){
+    margin-top: 357px;
+  }
+  body.about div#main > section:nth-child(2){
+    margin-top: 651px;
+  }
+  body.web-design{
+    div#main > section:nth-child(2){
+      margin-top: 395px;
+    }
+  }
+  body.affiliate.b-variant div#main > section:nth-child(2){
+    margin-top: 700px;
+  }
+  body.web-hosting-hub-coupon div#main > section:nth-child(2){
+    margin-top: 343px;
+  }
+}

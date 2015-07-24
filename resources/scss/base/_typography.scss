@@ -1,0 +1,82 @@
+h1, h3{
+  font-weight: $bold-font;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  word-spacing: .1em;
+  text-rendering: optimizeLegibility;
+}
+h1, .h1, h2, .h2, h3, .h3{
+  margin-top: 22px;
+  margin-bottom: 11px;
+}
+h4, .h4, h5, .h5, h6, .h6{
+  margin-bottom: 11px;
+  margin-bottom: 11px;
+}
+
+h1, .h1{
+  font-size: 41px;
+}
+h2, .h2{
+  font-style: italic;
+}
+h3, .h3{
+  color: $blue;
+  text-align: center;
+  font-size: 28px;
+}
+h4, .h4{
+  font-weight: $bold-font;
+  font-size: 16px;
+  line-height: 1.42857;
+}
+h5, .h5{
+  font-size: 16px;
+}
+// Half-width section headers
+.col-md-6 > h3{
+  text-align: left;
+  @media (max-width: $screen-sm-max){
+    text-align: center;
+  }
+}
+// Section header styles
+.sec-header{
+  p{
+    font-weight: $bold-font;
+    text-transform: $uppercase-font;
+    font-size: 14px;
+    margin-top: 30px;
+  }
+  h3{
+    margin: 0;
+  }
+}
+h3.sec-header{
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+a:focus,
+a:active{
+  text-decoration: none;
+}
+
+.tooltip{
+  font-size: 18px;
+}
+
+blockquote{
+  padding: 11px 22px;
+  margin: 0 0 22px;
+  font-style: italic;
+  font-size: 16px;
+  border-left: 0;
+}
+
+#icons{
+  span.glyphicon{
+    font-size: 34px;
+    margin-right: 5px;
+  }
+}

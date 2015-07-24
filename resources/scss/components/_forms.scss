@@ -1,0 +1,119 @@
+.form-control{
+  border: 2px solid #ccc;
+  font-size: 16px;
+  border-radius: 0;
+  @include box-shadow(none);
+}
+
+.form-container{
+  padding: 20px;
+  background: $light-grey;
+}
+.form-actions{
+  overflow: hidden;
+}
+.subform-label{
+  margin-bottom: 15px;
+  color: $blue;
+  text-decoration: underline;
+}
+
+.form-actions-web-design{
+  margin-top: 50px;
+}
+
+// check out : 
+// http://bootstrapvalidator.com/
+
+.coupon-redemption,
+.domain-search {
+  h3{
+    margin: 0;
+    line-height: 46px;
+    @media (max-width: $screen-sm-max){
+      margin-bottom: 20px; 
+    }
+  }
+  .form-control{
+    height: 46px;
+  }
+  .form-control,
+  .input-group-addon{
+    border-radius: 0;
+    border: 0;
+    @include box-shadow(none);
+  }
+  span.glyphicon{
+    color: $orange;
+  }
+  .input-group-addon{
+    background: $white;
+    cursor: pointer;
+  }
+  // styles for new version of domains seciton 12.26.14
+  a.btn,
+  input.btn{
+    @media (min-width: $screen-sm){
+      width: 100%;
+    }
+    @media (max-width: $screen-xs-max){
+      margin-top: 20px;
+      &:hover,
+      &:focus,
+      &:active{
+        margin-top: 21px;
+      }
+    }
+  }
+  p{
+    margin: 0;
+  }
+
+  .domain-response{
+    position: absolute;
+    top: 0;
+    right: 40px;
+    z-index: 3;
+    line-height: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 5px;
+    text-align: center;
+    width: 150px;
+    border-radius: 5px;
+    opacity: 0.7;
+    &.loading{
+      text-align: right;
+      font-weight: $bold-font;
+    }
+    &.fail{
+      background-color: #FF4545;
+      color: $white;
+    }
+    &.success{
+      background-color: #A5FFA5;
+      opacity: 1;
+      padding: 0;
+      border-bottom: 2px solid #51E051;
+      input{
+        background: 0;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        color: $link-blue;
+        &:hover, &:focus, &:active{
+          outline: none;
+          color: darken($link-blue, 20%);
+        }
+      }
+    }
+  }
+
+}
+
+.form-group .form-group{
+  margin-left: 20px;
+}

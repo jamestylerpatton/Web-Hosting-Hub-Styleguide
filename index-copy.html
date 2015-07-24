@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Hosting Hub | Styleguide</title>
+  <link rel="stylesheet" href="web/css/style.css">
+</head>
+<body ng-app="styleguide">
+
+<nav id="hub_navigation" data-color="rgba(0, 90, 126, 0.95)" class="navbar-inverse main-nav trans-bg navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="menu">MENU</span>
+        <span class="first icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <img src="//whh01-inmotionhosting1.netdna-ssl.com/img/logos/hubx-full-logo.svg" alt="webhostinghub">
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav" style="clear: right;">
+        <li><a href="#logos">Branding</a></li>
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#buttons">Buttons</a></li>
+        <li><a href="#icons">Icons</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="">Tables</a></li>
+        <li><a href="">Product Matrix</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div id="main">
+
+  <div class="hero">
+    <section class="banner-sec default-banner">
+      <div id="hub_banner_overlay" data-color="rgba(12, 46, 66, 0.9)" class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1><span id="hub_header" data-name="H1 Tag" data-font="Lato 700 uppercase 41px">Styleguide</span></h1>
+            <h2><span id="hub_subheader" data-name="H2 Tag" data-font="Lato 500 italic 30px">Follow these rules, and I wont have to kill you</span></h2>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="logos" class="bg-light-blue logos" ng-include="'views/logos.html'">
+  </section>
+
+  <section id="colors" class="bg-white colors" ng-include="'views/colors.html'">
+  </section>
+
+  <section id="typography" class="bg-grey" ng-include="'views/typography.html'">
+  </section>
+
+  <section id="buttons" class="bg-white" ng-include="'views/buttons.html'">
+  </section>
+
+  <section id="icons" class="bg-blue" ng-include="'views/icons.html'">
+  </section>
+
+  <section id="forms" class="bg-grey" ng-include="'views/forms.html'">
+  </section>
+
+</div>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+<script type="text/javascript" src="./web/js/script.js"></script>
+
+<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+<script src="resources/js/app.js"></script>
+</body>
+</html>

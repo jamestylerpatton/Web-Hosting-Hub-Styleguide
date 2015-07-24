@@ -1,0 +1,283 @@
+.products{
+  em{
+    font-weight: $bold-font;
+  }
+}
+.table.products{
+  margin-top: 80px;
+
+  > thead > tr > th:first-child {
+    border-bottom: 0;
+  }
+  > tbody > tr > th,
+  > tfoot > tr > th:first-child{
+    text-align: right;
+    border-top: 0;
+  }
+  th, td{
+    width: 25% !important;
+    font-weight: 400;
+  }
+
+  tbody{
+    > tr{
+      > td {
+        border-top: 1px solid $white;
+      }
+      > th{
+        a{
+          cursor: pointer;
+        }
+        div{
+          color: $black;
+          text-align: left;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  // Adds white space on top and bottom of light blue sections
+  // to make the middle part pop out
+  thead{
+    font-style: italic;
+    > tr > th{
+      border-bottom: 1px solid $white;
+      position: relative;
+      &:nth-child(2):before, 
+      &:nth-child(4):before{
+        content: "\a0";
+        display: block;
+        line-height: 60px;
+        margin: -8px -8px 0 -8px;
+        border-top: $white solid 30px;
+      }
+    }
+    > tr > th,
+    > tr > td{
+      a{
+        font-style: normal;
+      }
+      &:nth-child(2),
+      &:nth-child(4){
+        background-color: $table-light-blue;
+      }
+      &:nth-child(2){
+        @include box-shadow(inset -8px 0px 5px -6px rgba(0,0,0,0.15));
+      }
+      &:nth-child(3){
+        background-color: $blue-bg;
+      }
+      &:nth-child(4){
+        @include box-shadow(inset 8px 0px 5px -6px rgba(0,0,0,0.15));
+      }
+    }
+    .round-table-head{
+      position: absolute;
+      top: -50px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: 150px;
+      height: 150px;
+      border-radius: 75px;
+      background-color: inherit;
+      @include box-shadow(0px 0px 1px 1px rgba(0,0,0,0.15));
+      &.first{
+        background: $table-light-blue url('../img/logos/icon-spark.svg') no-repeat center 20px;
+        background-size: 75px 75px;
+      }
+      &.second{
+        background: $blue-bg url('../img/logos/icon-nitro.svg') no-repeat center 10px;
+        background-size: 104px 104px;
+        top: -70px;
+      }
+      &.third{
+        background: $table-light-blue url('../img/logos/icon-dynamo.svg') no-repeat center 20px;
+        background-size: 45px 75px;
+      }
+      p{
+        margin-top: 98px;
+        font-weight: $black-font;
+        font-style: italic;
+        @include skew(0deg, -5deg);
+        font-size: 24px;
+      }
+    }
+  }
+  tfoot{
+    > tr > td{
+      border-top: 1px solid $white;
+      //Backup for table background colors
+      &:nth-child(2):after,
+      &:nth-child(4):after{
+        content: "\a0";
+        display: block;
+        line-height: 12px;
+        margin: 0 -8px -8px -8px;
+        border-bottom: $white solid 20px;
+      }
+    }
+  }
+
+  thead th,
+  tfoot td,
+  td{
+    text-align: center;
+  }
+
+  tbody,
+  tfoot{
+    > tr > td{
+      &:nth-child(2),
+      &:nth-child(4){
+        background-color: $table-light-blue;
+      }
+      &:nth-child(2){
+        @include box-shadow(inset -8px 0px 5px -6px rgba(0,0,0,0.15));
+      }
+      &:nth-child(3){
+        background-color: $blue-bg;
+      }
+      &:nth-child(4){
+        @include box-shadow(inset 8px 0px 5px -6px rgba(0,0,0,0.15));
+      }
+    }
+  }
+  &.table-hover{
+    > tbody > tr:hover{
+      background-color: $white;
+      color: $orange;
+      td{
+        font-weight: $bold-font;
+        background-color: rgba( $light-blue-bg, .5 );
+      }
+    }
+  }
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max){
+    a.btn-primary{
+      padding: 12px 10px;
+    }
+  }
+} // End products table
+//   For product boxes (appear under 991 px), look at _product-boxes.scss
+
+.product-sec-bottom{
+  text-transform: uppercase;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  p{
+    font-size: 20px;
+    &.plus{
+      font-size: 34px;
+    }
+  }
+  span{
+    color: $blue;
+    font-weight: $bold-font;
+  }
+  .ad-credit-banner{
+    background: $light-grey;
+    color: $orange;
+    padding: 8px 32px;
+    font-weight: $black-font;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 34px;
+    img{
+      margin-left: 20px;
+      max-width: 315px;
+      max-height: 37px;
+    }
+    @media (max-width: $screen-xs){
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+  @media (max-width: $screen-md-max){
+    width: 90%;
+  }
+  @media (max-width: $screen-sm-max){
+    .ad-credit-banner img{
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  }
+}
+
+// Fix borders on grey section background
+.bg-grey .table.products{
+  &.table-hover > tbody > tr:hover{
+    background-color: transparent;
+  }
+  thead{
+    tr > th:nth-child(2):before, tr > th:nth-child(4):before{
+      border-top: $light-grey solid 20px;
+    }
+  }
+  tfoot{
+    tr > td:nth-child(2):after, tr > td:nth-child(4):after{
+      border-bottom: $light-grey solid 20px;
+    }
+  }
+}
+
+#geekspeak-table,
+#compare-table,
+#bg-compare-table{
+  > .container{
+    padding: 20px;
+    background: $light-grey;
+  }
+  .table{
+    background: $white;
+    thead > tr > th{
+      border-bottom: 0;
+    }
+    th, td{
+      padding: 10px;
+      font-weight: $regular-font;
+    }
+    td{
+      text-align: center;
+    }
+  }
+}
+
+#bg-compare-table{
+  .table{
+    overflow: hidden;
+    border: 0;
+  }
+  thead{
+    background: $light-grey;
+    >tr>th{
+      border: 0;
+      text-align: center;
+    }
+  }
+  tbody{
+    border: 2px solid #ddd;
+  }
+}
+
+.table.design-package{
+  background: $white;
+  margin-top: 20px;
+  thead{
+    background: darken($light-grey, 5%);
+    tr > th{
+      border: none;
+    }
+  }
+  tr > td{
+    border: none;
+  }
+}
+
+.table.compare-boldgrid>tbody>tr>td,
+.table.compare-boldgrid>tbody>tr>th,
+.table.compare-boldgrid>thead>tr>th{
+  vertical-align: middle;
+}

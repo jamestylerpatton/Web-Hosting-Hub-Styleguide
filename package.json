@@ -1,0 +1,50 @@
+{
+  "name": "Web-Hosting-Hub-Styleguide",
+  "version": "1.0.0",
+  "description": "A visual styleguide for Web Hosting Hub",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamestylerpatton/Web-Hosting-Hub-Styleguide.git"
+  },
+  "author": "Tyler Patton",
+  "license": "none",
+  "bugs": {
+    "url": "https://github.com/jamestylerpatton/Web-Hosting-Hub-Styleguide/issues"
+  },
+  "homepage": "https://github.com/jamestylerpatton/Web-Hosting-Hub-Styleguide",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-browserify": "^0.5.1",
+    "gulp-notify": "^2.2.0"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.5",
+    "browserify": "^10.2.6",
+    "browserify-shim": "^3.8.9",
+    "gulp-minify": "0.0.5",
+    "gulp-minify-css": "^1.2.0",
+    "jquery": "^2.1.4"
+  },
+  "browser": {
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
+    "jQuery": "./node_modules/jquery/dist/jquery.min.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "bootstrap": {
+      "depends": [
+        "jQuery"
+      ]
+    }
+  }
+}

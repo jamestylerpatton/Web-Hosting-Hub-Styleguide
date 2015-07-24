@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row sec-header">
+    <div class="col-md-12">
+      <h3>Forms</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="form-container">
+        <form action="#contact-form" class="form-vertical">
+          <div class="row">
+            <div class="col-md-12">
+              <div id="feedback">
+                <div class="form-group">
+                  <label class="control-label required">Name:</label>
+                  <input class= "form-control" id="feedback_name" name= "feedback[name]" placeholder="Your Name" required="required" type="text">
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label required">Email:</label>
+                  <input class="form-control" id="feedback_email" name="feedback[email]" placeholder="yourname@yoursite.com" required="required" type="email">
+                </div>
+
+                <div class="form-group">
+                  <label class="subform-label control-label required">Parts of the sub-form:</label>
+
+                  <div id="feedback_sub_form_1">
+                    <div class="form-group">
+                      <label class="control-label">What do you think about this select input?</label>
+                      <select class="form-control" id="feedback_sub_form_1_overall_satisfaction">
+                        <option value="">
+                        </option>
+                        <option value="10">
+                          I love it
+                        </option>
+                        <option value="5">
+                          I would change it, but it's not terrible
+                        </option>
+                        <option value="1">
+                          It sucks
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label">To what extent has our web hosting service met your expectations?</label>
+                      <select class="form-control" id="feedback_sub_form_1_meet_expectations">
+                        <option value="">
+                        </option>
+                        <option value="10">
+                          10 - Exceeds Expectations
+                        </option>
+                        <option value="1">
+                          1 - Does Not Meet Expectations
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="feedback control-label required">Would You Recommend Web Hosting Hub?</label>
+                  <div id="feedback_recommend_to_friend">
+                    <div class="radio">
+                      <label class="requiredfeedback">
+                        <input checked="checked" id="feedback_recommend_to_friend_0" required="required" type="radio" value="yes"> Yes
+                      </label>
+                    </div>
+
+                    <div class="radio">
+                      <label class="requiredfeedback">
+                        <input id="feedback_recommend_to_friend_1" required= "required" type="radio" value="no">No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label required" for= "feedback_textarea">Additional Comments:</label> 
+                  <textarea class="form-control" id= "feedback_textarea" required="required"></textarea>
+                </div>
+                <small>Required fields are marked with an asterisk (*)</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-actions">
+                <button class="btn btn-info form-submit pull-right" type="submit">Send</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

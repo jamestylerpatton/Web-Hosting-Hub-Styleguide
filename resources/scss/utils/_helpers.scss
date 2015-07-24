@@ -1,0 +1,19 @@
+%header{
+  font-weight: $bold-font;
+  text-transform: uppercase;
+}
+%center-block{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+// Blue overlay for background images
+%bg-overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0C2A3C;
+  background: rgba(12, 46, 66, 0.9);
+}

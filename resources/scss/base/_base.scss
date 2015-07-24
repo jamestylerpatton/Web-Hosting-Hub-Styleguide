@@ -1,0 +1,79 @@
+html{
+  position: relative;
+  min-height: 100%;
+}
+
+body{
+  padding: 0;
+  background-color: $nav-blue;
+  font-family: $font !important;
+  font-size: 16px;
+  font-weight: $regular-font; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+div#main{
+  background-color: $white;
+}
+
+// Background colors/images/header text for all main sections
+#main > section{
+  padding-top: 80px;
+  padding-bottom: 80px;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  &.bg-white{
+    background: $white;
+  }
+  &.bg-grey{
+    background: $light-grey;
+  }
+  &.bg-blue{
+    background: $blue-bg;
+    h3{
+      color: $grey;
+    }
+  }
+  &.bg-light-blue{
+    background: $light-blue-bg;
+    h3{
+      color: $dark-grey;
+    }
+  }
+  &.bg-img{
+    background: url('../../img/banners/hosting-plans.jpg') center center;
+    position: relative;
+    @media (min-width: 1500px){
+      background-size: cover;
+    }
+    .overlay{
+      @extend %bg-overlay;
+    }
+    > .container{
+      position: relative;
+    }
+    h3{
+      color: $white;
+    }
+  }
+  &.fine-print{
+    padding-top: 0;
+  }
+  &.promo-banner{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.bg-sec-divider > .container{
+  border-top: 2px solid $dark-grey;
+  margin-top: -2px;
+  position: relative;
+  z-index: 1;
+}
+
+iframe[name='google_conversion_frame']{
+  display: none;
+}

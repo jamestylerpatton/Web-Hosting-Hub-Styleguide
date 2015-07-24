@@ -1,0 +1,140 @@
+.main-nav{
+  background: rgba($nav-blue, .95);
+  padding-top: 26px;
+
+  &.trans-bg{
+    background: rgba($nav-blue, .0);
+    @include transition(background .2s ease-out);
+    @media (max-width: $screen-md-max){
+      background: rgba($nav-blue, .95);
+    }
+  }
+
+  .navbar-nav{
+    margin-top: 25px;
+    > li > a{
+      color: $white;
+      &:hover{
+        color: $menu-blue;
+      }
+    }
+    > li.active > a{
+      color: $orange;
+    }
+  }
+
+  a{
+    color: $white;
+  }
+  .navbar-header{
+    clear: right;
+    width: 235px;
+  }
+  .navbar-brand{
+    padding: 0;
+    height: auto;
+    width: 160px;
+    img{
+      width: 160px;
+      height: 57px;
+    }
+  }
+  @media (max-width: $screen-sm-max){
+    position: relative;
+    background: rgba($nav-blue, .95);
+    ul.nav.contact{
+      float: none;
+      li{
+        float: left;
+      }
+    }
+    .navbar-header{
+      width: auto;
+    }
+    .navbar-brand{
+      margin-top: 0;
+      padding: 0;
+      margin: 15px;
+    }
+    .navbar-toggle{
+      margin-top: 31px;
+      height: 40px;
+    }
+  }
+  @media (max-width: $screen-xs){
+    ul.nav.contact li {
+      float: left;
+      width: 50%;
+    }
+    .navbar-toggle {
+      .menu{
+        display: none;
+      }
+      .icon-bar.first{
+        margin-top: 0;
+      }
+    }
+  }
+  @media (max-width: 290px){
+    ul.nav.contact li {
+      float: none;
+      width: 100%;
+    }
+  }
+  @media (max-width: $screen-xs-max){
+    #navbar{
+      background-color: darken($nav-blue, 3%);
+      border-top: 0;
+      @include box-shadow(none);
+    }
+  }
+  @media (min-width: $screen-sm) and (max-width: $screen-md-max) {
+    #navbar li > a{
+      padding: 15px 13px;
+    }
+  }
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max){
+    .navbar-header{
+      clear: none;
+    }
+  }
+}
+
+.navbar-inverse .navbar-toggle {
+  margin-right: 15px;
+  padding: 9px 10px;
+  background-color: transparent;
+  background-color: #3f9bc0;
+  border: 0;
+  border-radius: 0;
+
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    margin-top: 4px;
+  }
+
+  .menu{
+    margin-left: 40px;
+    float: right;
+    color: #fff;
+    font-weight: 900;
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+    display: none;
+  }
+
+  &:hover,
+  &:focus{
+    background-color: #327c9a;
+  }
+}
+
+.navbar-fixed-top .navbar-collapse, 
+.navbar-fixed-bottom .navbar-collapse {
+  max-height: 400px;
+}

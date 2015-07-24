@@ -1,0 +1,49 @@
+// Hub fonts
+$font:        "Lato", Helvetica, Arial, sans-serif;
+$italic-font:     italic;
+$regular-font:    400;
+$bold-font:       700;
+$black-font:      900;
+$uppercase-font:  uppercase;
+
+// Hub Colors
+// blue (from darkest to lightest)
+$dark-blue:         #0B2A3B; //only used on tables on hosting features page
+$footer-bg:         #003e57; //footer background
+$nav-blue:          #005A7E; //nav background and back to top button
+$banner-blue:       #006C98;
+$blue:              #3f9bc0; //most used blue in site
+$link-blue:         #199ed2; //info button border and text links
+$menu-blue:         #6bd5ff; //ad credit banner text, nav text, pricebox background
+$blue-bg:           #a3e5ff;
+$table-light-blue:  #d2f2ff; //product table columns 1 & 3
+$light-blue-bg:     #ecf9ff;
+// other hub colors
+$orange:              #ff7007;
+$green:               #00AD1C;
+$red:                 #FF362B;
+$dark-red:            #850d0d;
+// shades of grey
+$white:             #ffffff;
+$light-grey:        #f4f4f4; // hub grey background
+$footer-grey:       #d5d5d5;
+$grey:              #636363;
+$dark-grey:         #4f5050;
+$black:             #333333;
+// Social
+$facebook:              #335798;
+$twitter:               #32cbff;
+$youtube:               #CC181E;
+$google:                #d14734;
+$blog:                  #E17842;
+// Screen breakpoint sizes
+$screen-xs:                  480px;
+$screen-sm:                  768px;
+$screen-md:                  992px;
+$screen-lg:                  1200px;
+$screen-xs-max:              ($screen-sm - 1);
+$screen-sm-max:              ($screen-md - 1);
+$screen-md-max:              ($screen-lg - 1);
+
+// custom variables
+$home-pricebox-border:   3px solid #ccc;

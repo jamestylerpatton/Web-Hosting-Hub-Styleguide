@@ -1,0 +1,83 @@
+section#colors{
+  .color-swatch-blue,
+  .color-swatch-grey,
+  .color-swatch-others{
+    overflow: hidden;
+    >div{
+      float: left;
+      height: 50px;
+    }
+  }
+  .color-swatch-blue{
+    >div{
+      width: 10%;
+      &.blue1{
+        background-color: $dark-blue;
+      }
+      &.blue2{
+        background-color: $footer-bg;
+      }
+      &.blue3{
+        background-color: $nav-blue;
+      }
+      &.blue4{
+        background-color: $banner-blue;
+      }
+      &.blue5{
+        background-color: $blue;
+      }
+      &.blue6{
+        background-color: $link-blue;
+      }
+      &.blue7{
+        background-color: $menu-blue;
+      }
+      &.blue8{
+        background-color: $blue-bg;
+      }
+      &.blue9{
+        background-color: $table-light-blue;
+      }
+      &.blue10{
+        background-color: $light-blue-bg;
+      }
+    }
+  }
+  .color-swatch-grey{
+    >div{
+      width: 16.6666%;
+      &.grey1{
+        background-color: $white;
+      }
+      &.grey2{
+        background-color: $light-grey;
+      }
+      &.grey3{
+        background-color: $footer-grey;
+      }
+      &.grey4{
+        background-color: $grey;
+      }
+      &.grey5{
+        background-color: $dark-grey;
+      }
+      &.grey6{
+        background-color: $black;
+      }
+    }
+  }
+  .color-swatch-others{
+    >div{
+      width: 33.333%;
+      &.orange{
+        background-color: $orange;
+      }
+      &.green{
+        background-color: $green;
+      }
+      &.red{
+        background-color: $red;
+      }
+    }
+  }
+}

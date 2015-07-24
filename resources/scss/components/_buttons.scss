@@ -1,0 +1,85 @@
+.btn{
+  border-radius: 0;
+  font-weight: $bold-font;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  &.btn-primary{
+    background: $orange;
+    border: 0;
+    // padding: 3% 10%;
+    padding: 12px 30px;
+    border-bottom: darken( $orange, 10% ) 4px solid;
+    &:hover,
+    &:active,
+    &:focus{
+      background: darken( $orange, 5% );
+      border-bottom: darken( $orange, 15% ) 3px solid;
+      margin-top: 1px;
+    }
+    @media (max-width: $screen-md-max){
+      padding: 12px 20px;
+    }
+  }
+  &.btn-info{
+    background: $light-grey; 
+    border: $link-blue 2px solid;
+    color: $orange;
+    padding: 8px 32px;
+    &:hover,
+    &:active,
+    &:focus{
+      background: darken($light-grey, 5%);
+    }
+  }
+  &.btn-info,
+  &.btn-primary{
+    &:active{
+      outline: none;
+    }
+  }
+  @media (max-width: $screen-xs){
+    font-size: 14px;
+  }
+}
+
+// (scroll) up button code
+.up-button{
+  display: none;
+  position: relative;
+  z-index: 20;
+}
+.scrollUp{
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px solid $white;
+  text-align: center;
+  padding: 8px;
+  background: $nav-blue;
+  color: $white;
+  opacity: 0.5;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 28px;
+  line-height: 35px;
+  @include transition(.3s);
+  white-space: nowrap;
+  span{
+    font-family: 'Icomoon';
+    margin-right: 10px;
+    &:before{
+      content: '\e600';
+    }
+  }
+  &:hover,
+  &:active{
+    opacity: 1;
+    width: 120px;
+  }
+  &:focus{
+    opacity: 0.5;
+    width: 50px;
+  }
+}

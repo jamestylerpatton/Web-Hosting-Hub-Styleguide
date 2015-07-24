@@ -1,0 +1,63 @@
+// THIS IS ONLY FOR THE PRODUCT TABLE WHEN THE DEVICE
+// WIDTH IS BELOW 991PX
+
+.block.products{
+  background-color: $table-light-blue;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  .block-head p{
+    margin-top: 98px;
+    font-weight: $black-font;
+    font-style: italic;
+    @include skew(0deg, -5deg);
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+  .pricebox{
+    padding: 0 0 20px;
+    @include skew(0deg, 0deg);
+  }
+  a.btn{
+    padding: 10px 12px;
+  }
+  &.first .block-head{
+    background: url('../img/logos/icon-spark.svg') no-repeat center 20px;
+    background-size: 75px 75px;
+  }
+  &.second {
+    background-color: $blue-bg;
+    .block-head{
+      background: url('../img/logos/icon-nitro.svg') no-repeat center 10px;
+      background-size: 104px 104px;
+    }
+  }
+  &.third .block-head{
+    background: url('../img/logos/icon-dynamo.svg') no-repeat center 20px;
+    background-size: 45px 75px;
+  }
+  .dropdown{
+    margin-top: 30px;
+    display: none;
+    > .row{
+      padding: 15px 0;
+    }
+    a{
+      cursor: pointer;
+    }
+  }
+  div.collapse{
+    overflow: hidden;
+  }
+  .col-md-12.clearfix{
+    clear: both;
+  }
+  @media (max-width: 319px){
+    > .row > div{
+      width: 100%;
+      &.col-xs-7 a.btn{
+        margin-top: 10px;
+      }
+    }
+  }
+}
