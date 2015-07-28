@@ -65,14 +65,6 @@ audio{
   @include box-shadow(0px 0px 1px 1px rgba(0,0,0,0.15));
 }
 
-.align-right{
-  text-align: right;
-}
-
-.upper{
-  text-transform: uppercase;
-}
-
 .inset-bg{
   @include box-shadow(inset 0px 3px 6px 0px rgba(0, 0, 0, 0.05));
 }
@@ -146,5 +138,12 @@ span.glyphicon.glyphicon-remove{
   font-size: 0;
   &::before{
     font-size: initial;
+  }
+}
+
+#icons{
+  span.glyphicon{
+    font-size: 34px;
+    margin-right: 5px;
   }
 }

@@ -2,3 +2,4 @@ node_modules
 .sass-cache
 web/css/
 web/js/
+.DS_Store
