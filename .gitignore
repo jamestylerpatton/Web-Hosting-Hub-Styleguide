@@ -4,3 +4,4 @@ web/css/
 web/js/script.js
 web/js/script-min.js
 .DS_Store
+npm-debug.log
