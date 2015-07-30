@@ -1,6 +1,4 @@
 node_modules
 .sass-cache
-web/css/
 web/js/script.js
-web/js/script-min.js
 .DS_Store
