@@ -8,9 +8,11 @@ section#colors{
       height: 50px;
     }
   }
-  .color-swatch-blue{
-    >div{
-      width: 10%;
+  .color-swatch{
+    span{
+      height: 40px;
+      display: block;
+      margin-bottom: 20px;
       &.blue1{
         background-color: $dark-blue;
       }
@@ -41,11 +43,6 @@ section#colors{
       &.blue10{
         background-color: $light-blue-bg;
       }
-    }
-  }
-  .color-swatch-grey{
-    >div{
-      width: 16.6666%;
       &.grey1{
         background-color: $white;
       }
@@ -64,11 +61,6 @@ section#colors{
       &.grey6{
         background-color: $black;
       }
-    }
-  }
-  .color-swatch-others{
-    >div{
-      width: 33.333%;
       &.orange{
         background-color: $orange;
       }

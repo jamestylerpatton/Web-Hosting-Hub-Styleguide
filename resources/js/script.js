@@ -1,12 +1,14 @@
 var $ = jQuery = require('jQuery'),
-    drags = require('../../web/js/drags.js'),
+    drags = require('./drags.js'),
+    smoothscroll = require('./smoothscroll.js'),
+    items = require('./item-data.js'),
     bootstrap = require('../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'),
-    detectElements = require('../../web/js/detect-elements.js');
+    clickableItems = require('./clickable-items.js');
 
 (function($) {
 
     // Returns viewport width (for older browsers)
-    function viewportWidth() {
+    var viewportWidth = function(){
         var e = window, a = 'inner';
         if (!('innerWidth' in window )) {
             a = 'client';
@@ -15,19 +17,7 @@ var $ = jQuery = require('jQuery'),
         return e[ a+'Width' ];
     }
 
-    $(function(){
-        var numCols = $('.products thead th').length;
-        $('table.products th, table.products td').each(function(i){
-            $(this).addClass('column' + (i % numCols));
-        });
-    });
-
-    // Add dropdown toggle to Product boxes
-    $(function(){
-        $('.products a.features').click(function(){
-            $( this ).closest('div.row').siblings('div.dropdown').slideToggle();
-        });
-    });
+    smoothscroll($, viewportWidth);
 
     // Adds the hero div to the banners and the parallax scroll
     $(function(){
@@ -45,7 +35,6 @@ var $ = jQuery = require('jQuery'),
         $(window).on('load scroll', function(e){
             s = $(window).scrollTop();
             $(".hero").css("top", (s*-0.55) + "px");
-            // $(".hero").css("top", (s*-0.05) + "px");
         });
     });
 
@@ -53,19 +42,11 @@ var $ = jQuery = require('jQuery'),
     $(function(){
         var navBar = $('.main-nav.trans-bg');
         var heroHeight = $('.hero').height();
-        // var heroAction = heroHeight - 150;
         var heroAction = 100;
         var fadeStart = 0;
         var fadeEnd = heroAction;
         var opacity;
         var scroll = $(window).scrollTop();
-
-        // variables for text color change
-        var el = $('.main-nav .summer #navbar a'),
-            cStart = [113, 72, 60],
-            cEnd = [255, 255, 255],
-            cDiff = [cEnd[0] - cStart[0], cEnd[1] - cStart[1], cEnd[1] - cStart[0]],
-            tEnd = heroAction;
 
         if ($(window).scrollTop() >= 100){
             $('.main-nav.trans-bg').css('background', 'rgba(0, 90, 126, 0.95)');
@@ -80,12 +61,10 @@ var $ = jQuery = require('jQuery'),
             scroll = $(window).scrollTop();
             if (window.innerWidth <= 990) {
                 navBar.css('background', 'rgba(0, 90, 126, .95)');
-                el.css('color', '#ffffff');
             }
             if (window.innerWidth >= 991) {
                 if(scroll < heroAction){
                     navBar.css('background', 'rgba(0, 90, 126, '+ scroll*0.95/fadeEnd +')');
-                    el.css('color', 'rgb('+cStart+')');
                 }
             }
         });
@@ -100,60 +79,23 @@ var $ = jQuery = require('jQuery'),
                     opacity = 0.95;
                 }
                 navBar.css('background', 'rgba(0, 90, 126, '+opacity+')');
-
-                // Change text color on scroll
-                var p = ($(this).scrollTop()) / (tEnd);
-                p = Math.min(1, Math.max(0, p));
-                var cBg = [Math.round(cStart[0] + cDiff[0] * p), Math.round(cStart[1] + cDiff[1] * p), Math.round(cStart[2] + cDiff[2] * p)];
-                el.css('color', 'rgb(' + cBg.join(',') +')');
-                if (scroll > tEnd){
-                    el.css('color', 'rgb('+cEnd+')');
-                }
             }
         });
 
         navBar.hover(function(){
             if (window.innerWidth >= 991 && $(window).scrollTop() < heroAction) {
                 $(this).css('background', 'rgba(0, 90, 126, .95)');
-                el.css('color', 'rgb('+cEnd+')');
             }
         }, function(){
             if (window.innerWidth >= 991 && $(window).scrollTop() < heroAction) {
                 $(this).css('background', 'rgba(0, 90, 126, '+ scroll*0.95/fadeEnd +')');
-                el.css('color', 'rgb('+cStart+')');
             }
         });
     });
 
     var init = (function(){
-        
-        $('[data-sgh]').detectElem();
 
-        // Turn anchor links into smoothscroll
-        $(function(){
-            $('a').click(function(event){
-                var link = $(this).attr('href');
-                if (typeof link !== typeof undefined && link !== false){
-                    if (link.indexOf('#') === 0){
-                        event.preventDefault();
-                        var destination = link.split('#')[1];
-
-                        if (destination !== ''){
-                            if (viewportWidth() > 991){
-                                var goToDest = $(link).offset().top - 100;
-                            } else{
-                                var goToDest = $(link).offset().top;
-                            }
-
-                            $('html,body').animate({
-                                scrollTop: goToDest
-                            }, 500);
-                            return false;
-                        }
-                    }
-                }
-            });
-        });
+        clickableItems($);
 
         $(function(){
             $('.products a.features').click(function(){

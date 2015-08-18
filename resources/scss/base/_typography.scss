@@ -57,9 +57,12 @@ h3.sec-header{
   margin-top: 0;
 }
 
-a:focus,
-a:active{
-  text-decoration: none;
+a{
+  color: $link-blue;
+  &:focus,
+  &:active{
+    text-decoration: none;
+  }
 }
 
 .tooltip{
