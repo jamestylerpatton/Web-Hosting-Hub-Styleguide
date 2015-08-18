@@ -572,21 +572,20 @@ module.exports = function($){
         },
         checkScroll : function(){
             if (window.innerWidth >= 991){
-                var scroll = this.$window.scrollTop();
-                if(scroll <= 0){
+                if(this.scrollHeight() <= 0){
                     this.emptyBackground();
-                } else if(scroll > 0 && scroll < 100){
+                } else if(this.scrollHeight() > 0 && this.scrollHeight() < 100){
                     this.calcbackground();
                 } else{
                     this.fillBackground();
                 }
-            }else{
-                this.emptyBackground();
             }
         },
-        calcbackground :function(){
-            var scroll = this.$window.scrollTop();
-            this.$navbar.css('background', 'rgba(0, 90, 126, '+ scroll*0.95/100 +')');
+        scrollHeight : function(){
+            return this.$window.scrollTop();
+        },
+        calcbackground : function(){
+            this.$navbar.css('background', 'rgba(0, 90, 126, '+ this.scrollHeight()*0.95/100 +')');
         },
         fillBackground : function(){
             this.$navbar.css('background', 'rgba(0, 90, 126, .95)');
