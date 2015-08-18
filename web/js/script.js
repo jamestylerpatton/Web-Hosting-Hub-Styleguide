@@ -113,6 +113,7 @@ module.exports = function($){
 var $ = jQuery = require('jQuery'),
     drags = require('./drags.js'),
     smoothscroll = require('./smoothscroll.js'),
+    navscroll = require('./navscroll.js'),
     items = require('./item-data.js'),
     bootstrap = require('../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'),
     clickableItems = require('./clickable-items.js');
@@ -151,59 +152,7 @@ var $ = jQuery = require('jQuery'),
     });
 
     // navigation scroll effect
-    $(function(){
-        var navBar = $('.main-nav.trans-bg');
-        var heroHeight = $('.hero').height();
-        var heroAction = 100;
-        var fadeStart = 0;
-        var fadeEnd = heroAction;
-        var opacity;
-        var scroll = $(window).scrollTop();
-
-        if ($(window).scrollTop() >= 100){
-            $('.main-nav.trans-bg').css('background', 'rgba(0, 90, 126, 0.95)');
-            $('.main-nav .summer #navbar a').css('color', '#fff');
-        }
-        if (window.innerWidth >= 991 && $(window).scrollTop() < 100){
-            $('.main-nav.trans-bg').css('background', 'rgba(0, 90, 126, '+ $(window).scrollTop()*0.95/100 +')');
-            $('.main-nav .summer #navbar a').css('color', 'rgb(113, 72, 60)');
-        }
-
-        $(window).resize(function(){
-            scroll = $(window).scrollTop();
-            if (window.innerWidth <= 990) {
-                navBar.css('background', 'rgba(0, 90, 126, .95)');
-            }
-            if (window.innerWidth >= 991) {
-                if(scroll < heroAction){
-                    navBar.css('background', 'rgba(0, 90, 126, '+ scroll*0.95/fadeEnd +')');
-                }
-            }
-        });
-        $(window).scroll(function(){
-            scroll = $(window).scrollTop();
-            if (window.innerWidth >= 990){
-                if (scroll <= fadeStart) {
-                    opacity = 0;
-                } else if (scroll > fadeStart && scroll < fadeEnd){
-                    opacity = scroll*0.95/fadeEnd;
-                }else{
-                    opacity = 0.95;
-                }
-                navBar.css('background', 'rgba(0, 90, 126, '+opacity+')');
-            }
-        });
-
-        navBar.hover(function(){
-            if (window.innerWidth >= 991 && $(window).scrollTop() < heroAction) {
-                $(this).css('background', 'rgba(0, 90, 126, .95)');
-            }
-        }, function(){
-            if (window.innerWidth >= 991 && $(window).scrollTop() < heroAction) {
-                $(this).css('background', 'rgba(0, 90, 126, '+ scroll*0.95/fadeEnd +')');
-            }
-        });
-    });
+    navscroll($);
 
     var init = (function(){
 
@@ -300,7 +249,7 @@ var $ = jQuery = require('jQuery'),
 
 })(jQuery);
 
-},{"../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js":1,"./clickable-items.js":3,"./drags.js":4,"./item-data.js":6,"./smoothscroll.js":7,"jQuery":2}],6:[function(require,module,exports){
+},{"../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js":1,"./clickable-items.js":3,"./drags.js":4,"./item-data.js":6,"./navscroll.js":7,"./smoothscroll.js":8,"jQuery":2}],6:[function(require,module,exports){
 module.exports = (function() {
   itemData = {
     // font and text
@@ -601,6 +550,59 @@ module.exports = (function() {
   }
 })();
 },{}],7:[function(require,module,exports){
+module.exports = function($){
+    navScroll = {
+        cacheDom : function(){
+            this.$navbar = $('.main-nav.trans-bg');
+            this.$hero = $('.hero');
+            this.$window = $(window);
+        },
+        bindEvents : function(){
+            this.$window.on('resize', this.checkWidth.bind(this));
+            this.$window.on('scroll', this.checkScroll.bind(this));
+            this.$navbar.hover(this.fillBackground.bind(this), this.checkScroll.bind(this));
+        },
+        checkWidth : function(){
+            if (window.innerWidth <= 990) {
+                this.fillBackground();
+            }
+            if (window.innerWidth >= 991 && this.$window.scrollTop() < 100) {
+                this.calcbackground();
+            }
+        },
+        checkScroll : function(){
+            if (window.innerWidth >= 991){
+                var scroll = this.$window.scrollTop();
+                if(scroll <= 0){
+                    this.emptyBackground();
+                } else if(scroll > 0 && scroll < 100){
+                    this.calcbackground();
+                } else{
+                    this.fillBackground();
+                }
+            }else{
+                this.emptyBackground();
+            }
+        },
+        calcbackground :function(){
+            var scroll = this.$window.scrollTop();
+            this.$navbar.css('background', 'rgba(0, 90, 126, '+ scroll*0.95/100 +')');
+        },
+        fillBackground : function(){
+            this.$navbar.css('background', 'rgba(0, 90, 126, .95)');
+        },
+        emptyBackground : function(){
+            this.$navbar.css('background', 'rgba(0, 90, 126, 0)');
+        },
+        init : function(){
+            this.cacheDom();
+            this.bindEvents();
+            this.checkScroll();
+        }
+    }
+    navScroll.init();
+}
+},{}],8:[function(require,module,exports){
 // Turn anchor links into smoothscroll
 module.exports = function($, viewportWidth){
     smoothScroll = {

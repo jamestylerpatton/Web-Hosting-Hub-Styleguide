@@ -1,6 +1,7 @@
 var $ = jQuery = require('jQuery'),
     drags = require('./drags.js'),
     smoothscroll = require('./smoothscroll.js'),
+    navscroll = require('./navscroll.js'),
     items = require('./item-data.js'),
     bootstrap = require('../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'),
     clickableItems = require('./clickable-items.js');
@@ -39,59 +40,7 @@ var $ = jQuery = require('jQuery'),
     });
 
     // navigation scroll effect
-    $(function(){
-        var navBar = $('.main-nav.trans-bg');
-        var heroHeight = $('.hero').height();
-        var heroAction = 100;
-        var fadeStart = 0;
-        var fadeEnd = heroAction;
-        var opacity;
-        var scroll = $(window).scrollTop();
-
-        if ($(window).scrollTop() >= 100){
-            $('.main-nav.trans-bg').css('background', 'rgba(0, 90, 126, 0.95)');
-            $('.main-nav .summer #navbar a').css('color', '#fff');
-        }
-        if (window.innerWidth >= 991 && $(window).scrollTop() < 100){
-            $('.main-nav.trans-bg').css('background', 'rgba(0, 90, 126, '+ $(window).scrollTop()*0.95/100 +')');
-            $('.main-nav .summer #navbar a').css('color', 'rgb(113, 72, 60)');
-        }
-
-        $(window).resize(function(){
-            scroll = $(window).scrollTop();
-            if (window.innerWidth <= 990) {
-                navBar.css('background', 'rgba(0, 90, 126, .95)');
-            }
-            if (window.innerWidth >= 991) {
-                if(scroll < heroAction){
-                    navBar.css('background', 'rgba(0, 90, 126, '+ scroll*0.95/fadeEnd +')');
-                }
-            }
-        });
-        $(window).scroll(function(){
-            scroll = $(window).scrollTop();
-            if (window.innerWidth >= 990){
-                if (scroll <= fadeStart) {
-                    opacity = 0;
-                } else if (scroll > fadeStart && scroll < fadeEnd){
-                    opacity = scroll*0.95/fadeEnd;
-                }else{
-                    opacity = 0.95;
-                }
-                navBar.css('background', 'rgba(0, 90, 126, '+opacity+')');
-            }
-        });
-
-        navBar.hover(function(){
-            if (window.innerWidth >= 991 && $(window).scrollTop() < heroAction) {
-                $(this).css('background', 'rgba(0, 90, 126, .95)');
-            }
-        }, function(){
-            if (window.innerWidth >= 991 && $(window).scrollTop() < heroAction) {
-                $(this).css('background', 'rgba(0, 90, 126, '+ scroll*0.95/fadeEnd +')');
-            }
-        });
-    });
+    navscroll($);
 
     var init = (function(){
 
