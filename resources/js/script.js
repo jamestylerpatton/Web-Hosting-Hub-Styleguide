@@ -39,8 +39,22 @@ var $ = jQuery = require('jQuery'),
         });
     });
 
-    // navigation scroll effect
-    navscroll($);
+    // Toggle grid
+    $(function(){
+        var gridToggle = false,
+            target = $('.toggle-grid');
+        target.click(function(){
+            if(gridToggle === false){
+                $('body').append('<div class="guides-show"></div>');$('.guides-show').append('<div class="container"></div>');$('.guides-show .container').append('<div class="row"></div>');for(var i = 0; i < 12; i++){$('.guides-show .container .row').append('<div class="col-xs-1"></div>');}$('.guides-show .container .row .col-xs-1').append('<span></span>');$('.guides-show').css({'position': 'fixed','width': '100%','height': '100%','top': 0,'left': 0,'bottom': 0,'right': 0});$('.guides-show > .container, .guides-show > .container > .row, .guides-show > .container > .row > .col-xs-1').css({'height': '100%'});$('.guides-show > .container > .row > .col-xs-1').css({'border-left': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1:first-child').css({'border-left': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1:last-child').css({'border-right': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1 > span').css({'width': '100%','height': '100%','display': 'block','background-color': 'rgba(0, 0, 0, 0.05)'});
+                gridToggle = true;
+                target.text('hide grid');
+            } else{
+                $('.guides-show').remove();
+                gridToggle = false;
+                target.text('show grid');
+            }
+        });
+    });
 
     var init = (function(){
 
@@ -117,22 +131,6 @@ var $ = jQuery = require('jQuery'),
         window.onload = function(){
             setTimeout(function(){$('.screenloading').fadeOut(200)}, 500);
         };
-    });
-
-    $(function(){
-        var gridToggle = false,
-            target = $('.toggle-grid');
-        target.click(function(){
-            if(gridToggle === false){
-                $('body').append('<div class="guides-show"></div>');$('.guides-show').append('<div class="container"></div>');$('.guides-show .container').append('<div class="row"></div>');for(var i = 0; i < 12; i++){$('.guides-show .container .row').append('<div class="col-xs-1"></div>');}$('.guides-show .container .row .col-xs-1').append('<span></span>');$('.guides-show').css({'position': 'fixed','width': '100%','height': '100%','top': 0,'left': 0,'bottom': 0,'right': 0});$('.guides-show > .container, .guides-show > .container > .row, .guides-show > .container > .row > .col-xs-1').css({'height': '100%'});$('.guides-show > .container > .row > .col-xs-1').css({'border-left': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1:first-child').css({'border-left': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1:last-child').css({'border-right': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1 > span').css({'width': '100%','height': '100%','display': 'block','background-color': 'rgba(0, 0, 0, 0.05)'});
-                gridToggle = true;
-                target.text('hide grid');
-            } else{
-                $('.guides-show').remove();
-                gridToggle = false;
-                target.text('show grid');
-            }
-        });
     });
 
 })(jQuery);

@@ -1,4 +1,4 @@
-module.exports = function($){
+module.exports = (function($){
     navScroll = {
         cacheDom : function(){
             this.$navbar = $('.main-nav.trans-bg');
@@ -6,27 +6,23 @@ module.exports = function($){
             this.$window = $(window);
         },
         bindEvents : function(){
-            this.$window.on('resize', this.checkWidth.bind(this));
-            this.$window.on('scroll', this.checkScroll.bind(this));
-            this.$navbar.hover(this.fillBackground.bind(this), this.checkScroll.bind(this));
+            this.$window.on('resize scroll', this.checkWidth.bind(this));
+            this.$navbar.hover(this.fillBackground.bind(this), this.checkWidth.bind(this));
         },
         checkWidth : function(){
             if (window.innerWidth <= 990) {
                 this.fillBackground();
-            }
-            if (window.innerWidth >= 991 && this.$window.scrollTop() < 100) {
-                this.calcbackground();
+            } else {
+                this.checkScroll();
             }
         },
         checkScroll : function(){
-            if (window.innerWidth >= 991){
-                if(this.scrollHeight() <= 0){
-                    this.emptyBackground();
-                } else if(this.scrollHeight() > 0 && this.scrollHeight() < 100){
-                    this.calcbackground();
-                } else{
-                    this.fillBackground();
-                }
+            if(this.scrollHeight() <= 0){
+                this.emptyBackground();
+            } else if(this.scrollHeight() > 0 && this.scrollHeight() < 100){
+                this.calcbackground();
+            } else{
+                this.fillBackground();
             }
         },
         scrollHeight : function(){
@@ -44,8 +40,8 @@ module.exports = function($){
         init : function(){
             this.cacheDom();
             this.bindEvents();
-            this.checkScroll();
+            this.checkWidth();
         }
     }
     navScroll.init();
-}
+})(jQuery);

@@ -151,8 +151,22 @@ var $ = jQuery = require('jQuery'),
         });
     });
 
-    // navigation scroll effect
-    navscroll($);
+    // Toggle grid
+    $(function(){
+        var gridToggle = false,
+            target = $('.toggle-grid');
+        target.click(function(){
+            if(gridToggle === false){
+                $('body').append('<div class="guides-show"></div>');$('.guides-show').append('<div class="container"></div>');$('.guides-show .container').append('<div class="row"></div>');for(var i = 0; i < 12; i++){$('.guides-show .container .row').append('<div class="col-xs-1"></div>');}$('.guides-show .container .row .col-xs-1').append('<span></span>');$('.guides-show').css({'position': 'fixed','width': '100%','height': '100%','top': 0,'left': 0,'bottom': 0,'right': 0});$('.guides-show > .container, .guides-show > .container > .row, .guides-show > .container > .row > .col-xs-1').css({'height': '100%'});$('.guides-show > .container > .row > .col-xs-1').css({'border-left': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1:first-child').css({'border-left': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1:last-child').css({'border-right': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1 > span').css({'width': '100%','height': '100%','display': 'block','background-color': 'rgba(0, 0, 0, 0.05)'});
+                gridToggle = true;
+                target.text('hide grid');
+            } else{
+                $('.guides-show').remove();
+                gridToggle = false;
+                target.text('show grid');
+            }
+        });
+    });
 
     var init = (function(){
 
@@ -229,22 +243,6 @@ var $ = jQuery = require('jQuery'),
         window.onload = function(){
             setTimeout(function(){$('.screenloading').fadeOut(200)}, 500);
         };
-    });
-
-    $(function(){
-        var gridToggle = false,
-            target = $('.toggle-grid');
-        target.click(function(){
-            if(gridToggle === false){
-                $('body').append('<div class="guides-show"></div>');$('.guides-show').append('<div class="container"></div>');$('.guides-show .container').append('<div class="row"></div>');for(var i = 0; i < 12; i++){$('.guides-show .container .row').append('<div class="col-xs-1"></div>');}$('.guides-show .container .row .col-xs-1').append('<span></span>');$('.guides-show').css({'position': 'fixed','width': '100%','height': '100%','top': 0,'left': 0,'bottom': 0,'right': 0});$('.guides-show > .container, .guides-show > .container > .row, .guides-show > .container > .row > .col-xs-1').css({'height': '100%'});$('.guides-show > .container > .row > .col-xs-1').css({'border-left': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1:first-child').css({'border-left': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1:last-child').css({'border-right': '1px solid #333'});$('.guides-show > .container > .row > .col-xs-1 > span').css({'width': '100%','height': '100%','display': 'block','background-color': 'rgba(0, 0, 0, 0.05)'});
-                gridToggle = true;
-                target.text('hide grid');
-            } else{
-                $('.guides-show').remove();
-                gridToggle = false;
-                target.text('show grid');
-            }
-        });
     });
 
 })(jQuery);
@@ -550,7 +548,7 @@ module.exports = (function() {
   }
 })();
 },{}],7:[function(require,module,exports){
-module.exports = function($){
+module.exports = (function($){
     navScroll = {
         cacheDom : function(){
             this.$navbar = $('.main-nav.trans-bg');
@@ -558,27 +556,23 @@ module.exports = function($){
             this.$window = $(window);
         },
         bindEvents : function(){
-            this.$window.on('resize', this.checkWidth.bind(this));
-            this.$window.on('scroll', this.checkScroll.bind(this));
-            this.$navbar.hover(this.fillBackground.bind(this), this.checkScroll.bind(this));
+            this.$window.on('resize scroll', this.checkWidth.bind(this));
+            this.$navbar.hover(this.fillBackground.bind(this), this.checkWidth.bind(this));
         },
         checkWidth : function(){
             if (window.innerWidth <= 990) {
                 this.fillBackground();
-            }
-            if (window.innerWidth >= 991 && this.$window.scrollTop() < 100) {
-                this.calcbackground();
+            } else {
+                this.checkScroll();
             }
         },
         checkScroll : function(){
-            if (window.innerWidth >= 991){
-                if(this.scrollHeight() <= 0){
-                    this.emptyBackground();
-                } else if(this.scrollHeight() > 0 && this.scrollHeight() < 100){
-                    this.calcbackground();
-                } else{
-                    this.fillBackground();
-                }
+            if(this.scrollHeight() <= 0){
+                this.emptyBackground();
+            } else if(this.scrollHeight() > 0 && this.scrollHeight() < 100){
+                this.calcbackground();
+            } else{
+                this.fillBackground();
             }
         },
         scrollHeight : function(){
@@ -596,11 +590,11 @@ module.exports = function($){
         init : function(){
             this.cacheDom();
             this.bindEvents();
-            this.checkScroll();
+            this.checkWidth();
         }
     }
     navScroll.init();
-}
+})(jQuery);
 },{}],8:[function(require,module,exports){
 // Turn anchor links into smoothscroll
 module.exports = function($, viewportWidth){
