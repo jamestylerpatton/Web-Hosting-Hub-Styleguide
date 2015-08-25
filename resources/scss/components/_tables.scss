@@ -6,6 +6,10 @@
 .table.products{
   margin-top: 80px;
 
+  tr.expand:hover{
+    cursor: pointer;
+  }
+
   > thead > tr > th:first-child {
     border-bottom: 0;
   }

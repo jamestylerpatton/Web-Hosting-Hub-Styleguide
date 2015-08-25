@@ -8353,6 +8353,9 @@ section#colors .color-swatch span.red {
 .table.products {
   margin-top: 80px;
 }
+.table.products tr.expand:hover {
+  cursor: pointer;
+}
 .table.products > thead > tr > th:first-child {
   border-bottom: 0;
 }

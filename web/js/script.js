@@ -176,6 +176,11 @@ var $ = jQuery = require('jQuery'),
             $('.products a.features').click(function(){
                 $( this ).closest('div.row').siblings('div.dropdown').slideToggle();
             });
+
+            $('tr.expand td').click(function(){
+                var target = $(this).siblings('th').find('a').attr('data-target');
+                $(target).collapse('toggle');
+            });
         });
 
         // Seach Domain Form Code
