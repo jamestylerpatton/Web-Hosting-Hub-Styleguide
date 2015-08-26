@@ -154,7 +154,7 @@ module.exports = (function() {
     footer_bg : {
       name : 'Footer Bg',
       props : {
-        'Hexcode' : '#003e57',
+        'Hexcode' : '#003E57',
         'RGB' : '0, 62, 87',
         'CMYK' : '11, 29, 0, 66'
       }
@@ -178,7 +178,7 @@ module.exports = (function() {
     blue : {
       name : 'Blue',
       props : {
-        'Hexcode' : '#3f9bc0',
+        'Hexcode' : '#3F9BC0',
         'RGB' : '63, 155, 192',
         'CMYK' : '67, 19, 0, 25'
       }
@@ -186,7 +186,7 @@ module.exports = (function() {
     link_blue : {
       name : 'Link Blue',
       props : {
-        'Hexcode' : '#199ed2',
+        'Hexcode' : '#199ED2',
         'RGB' : '25, 158, 210',
         'CMYK' : '88, 25, 0, 18'
       }
@@ -194,7 +194,7 @@ module.exports = (function() {
     menu_blue : {
       name : 'Menu Blue',
       props : {
-        'Hexcode' : '#6bd5ff',
+        'Hexcode' : '#6BD5FF',
         'RGB' : '107, 213, 255',
         'CMYK' : '58, 16, 0, 0'
       }
@@ -202,7 +202,7 @@ module.exports = (function() {
     blue_bg : {
       name : 'Blue Bg',
       props : {
-        'Hexcode' : '#a3e5ff',
+        'Hexcode' : '#A3E5FF',
         'RGB' : '163, 229, 255',
         'CMYK' : '36, 10, 0, 0'
       }
@@ -210,7 +210,7 @@ module.exports = (function() {
     table_light_blue : {
       name : 'Table Light Blue',
       props : {
-        'Hexcode' : '#d2f2ff',
+        'Hexcode' : '#D2F2FF',
         'RGB' : '210, 242, 255',
         'CMYK' : '18, 5, 0, 0'
       }
@@ -218,7 +218,7 @@ module.exports = (function() {
     light_blue_bg : {
       name : 'Light Blue Bg',
       props : {
-        'Hexcode' : '#ecf9ff',
+        'Hexcode' : '#ECF9FF',
         'RGB' : '236, 249, 255',
         'CMYK' : '7, 2, 0, 0'
       }
@@ -226,7 +226,7 @@ module.exports = (function() {
     white : {
       name : 'White',
       props : {
-        'Hexcode' : '#ffffff',
+        'Hexcode' : '#FFFFFF',
         'RGB' : '255, 255, 255',
         'CMYK' : '0, 0, 0, 0'
       }
@@ -234,7 +234,7 @@ module.exports = (function() {
     light_grey : {
       name : 'Light Grey',
       props : {
-        'Hexcode' : '#f4f4f4',
+        'Hexcode' : '#F4F4F4',
         'RGB' : '244, 244, 244',
         'CMYK' : '0, 0, 0, 4'
       }
@@ -242,7 +242,7 @@ module.exports = (function() {
     footer_grey : {
       name : 'Footer Grey',
       props : {
-        'Hexcode' : '#d5d5d5',
+        'Hexcode' : '#D5D5D5',
         'RGB' : '213, 213, 213',
         'CMYK' : '0, 0, 0, 16'
       }
@@ -258,7 +258,7 @@ module.exports = (function() {
     dark_grey : {
       name : 'Dark Grey',
       props : {
-        'Hexcode' : '#4f5050',
+        'Hexcode' : '#4F5050',
         'RGB' : '79, 80, 80',
         'CMYK' : '1, 0, 0, 69'
       }
@@ -274,7 +274,7 @@ module.exports = (function() {
     orange : {
       name : 'Orange',
       props : {
-        'Hexcode' : '#ff7007',
+        'Hexcode' : '#FF7007',
         'RGB' : '255, 112, 7',
         'CMYK' : '0, 56, 97, 0'
       }
